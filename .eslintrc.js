@@ -28,8 +28,9 @@ module.exports = {
       'vue': 'never'
     }],
     'linebreak-style': ['warn', 'unix'],
-    'comma-dangle': 0,
+    'comma-dangle': ['warn', 'always-multiline'],
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'no-console': process.env.NODE_ENV === 'production' ? 2 : 0
   }
 };
