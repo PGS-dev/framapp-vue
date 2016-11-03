@@ -1,5 +1,5 @@
 <template>
-  <products-list></products-list>
+  <products-list id=#app></products-list>
 </template>
 
 <script>
