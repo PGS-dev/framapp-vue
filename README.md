@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+[![travis-ci](https://travis-ci.org/PGS-dev/framapp-vue.svg?branch=master)
+
 ## Build Setup
 
 ``` bash
