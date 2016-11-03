@@ -1,5 +1,8 @@
 <template>
-  <layout></layout>
+  <div>
+    Test
+    <router-view class="view"></router-view>
+  </div>
 </template>
 
 <script>

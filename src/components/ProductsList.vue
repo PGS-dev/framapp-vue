@@ -1,7 +1,7 @@
 <template>
   <main>
     <section>
-      <product v-for="product in products" :data="product" track-by="id">
+      <product v-for="product in products" :data="product" track-by="id"></product>
     </section>
   </main>
 </template>
