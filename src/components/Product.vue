@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-photo">
-      <img :src="this.data.photo"></img>
+      <img :src="this.data.photo"/>
     </div>
     <h2>{{this.data.name}}</h2>
     <div>{{this.data.description}}</div>
@@ -10,7 +10,9 @@
 
 <script>
   export default {
-    props: ['data'],
+    props: {
+      data: Object
+    },
   };
 </script>
 
