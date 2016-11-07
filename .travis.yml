@@ -6,7 +6,7 @@ env:
   - NODE_VERSION=6.9.1
 script:
   - nvm use $NODE_VERSION
-  - npm test
+  - npm run unit
 before_install:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
