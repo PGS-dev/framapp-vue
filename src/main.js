@@ -5,4 +5,11 @@ import App from './App';
 new Vue({
   el: '#app',
   render: h => h(App),
+}); // end of new Vue
+
+Vue.directive('mdl', {
+  bind: function() {
+    componentHandler.upgradeElement(this.el);
+  }
 });
+
