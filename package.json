@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "function-bind": "^1.0.2",
-    "vue": "^2.0.5"
+    "vue": "^2.0.5",
+    "vuex": "^2.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
