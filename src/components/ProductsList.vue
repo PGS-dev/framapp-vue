@@ -1,6 +1,5 @@
 <template>
   <main>
-    <header>Products list</header>
     <section>
       <product v-for="product in products" :data="product" track-by="id">
     </section>
