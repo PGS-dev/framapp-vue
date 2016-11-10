@@ -11,7 +11,7 @@
 <script>
   export default {
     props: {
-      data: Object
+      data: Object,
     },
   };
 </script>

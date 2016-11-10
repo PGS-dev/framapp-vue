@@ -4,8 +4,10 @@
 
 <script>
 import ProductsList from './components/ProductsList';
+import store from './store/index';
 
 export default {
+  store,
   components: {
     ProductsList,
   },
