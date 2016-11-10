@@ -8,8 +8,7 @@ new Vue({
 }); // end of new Vue
 
 Vue.directive('mdl', {
-  bind: function() {
-    componentHandler.upgradeElement(this.el);
-  }
+  /* eslint-disable no-undef */
+  bind: () => componentHandler.upgradeElement(this.el),
 });
 
