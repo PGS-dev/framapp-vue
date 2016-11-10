@@ -2,6 +2,8 @@ language: java
 jdk:
   - oraclejdk8
 node_js: '6'
+sudo: required
+dist: trusty
 env:
   - NODE_VERSION=6.9.1
 script:
