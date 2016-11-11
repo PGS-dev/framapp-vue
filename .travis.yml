@@ -2,18 +2,35 @@ language: java
 jdk:
   - oraclejdk8
 node_js: '6'
-env:
-  - NODE_VERSION=6.9.1
-script:
-  - nvm use $NODE_VERSION
-  - npm run unit
+sudo: required
+dist: trusty
+cache:
+  directories:
+    - $HOME/.npm
+    - $HOME/.yarn-cache
 before_install:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - sleep 3
 before_script:
-  - nvm install $NODE_VERSION
-  - npm install
+  - npm install -g yarn
+  - yarn install --prefer-offline
+script:
+  - yarn run test
 branches:
   only:
     - master
+addons:
+  sauce_connect: true
+  firefox: 48.0
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
+after_success:
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "master" ]; then exit 0; fi
+  - bash deploy.sh
+env:
+  global:
+    secure: "hr3gOSIYtBHmGnUKWG5qgY9I94EgUvD006wLSatrHq00CUmtZaf3hxTw8Hhdhs6XfNGVVmk/pmdOylQHSeLFe5dynLNFOk+4PGItP/Rpm3kn5ZXOoZlblVyiA7aujR87cc464+ogK6recDXg4lwcwOh53S6Ar5AbOF4be1mdVGkK8nE4USjXpXkYjnXSWwH0GMRSBYEmsLMRlfe+rV+IvIgje7MCi990JP+IogFSHuqXZAZuQBrK7L8MCGWtg9VuUslLVr2uL0n66TFdMcHfwAlCRwFjg5lNRXR00e5qg9E7Sf8l5jS15Qf/zIT+KbgwQwNL8NnU6hollNqT7BGYwyeQIkCZcGJy01qevrI+Ps6g1z832CtNJPTLlu1M6Nb1tv/XzogI4vlPQUpX1Cw9CGFOXB8qWRmZSRW4ChdrFzpVk0KX1iiloFMgPZsJLqxnuEWnyBms/DksXLBBnNi5l/8M+OvlRcB547WOinJIhEZajqi1n5KFOtNzEuE41FBhYhJa06zWJDx+3K2nfUejkgl5IwG1LxLhJ4DDIuDpYV2/HJdAe2uU/xI0kBWgnLSi4AEgsvE6QOSQhMB6/WqbjOO3JztP9ocw2JHCI97ZDfmnDqxGL1+uTd/XAJwnoC6TrkbSxdmwC5uMQ3Bx7kFwqOVMIh8pcH+mUXojyCD0ioI="
