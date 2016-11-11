@@ -30,6 +30,7 @@ addons:
     - google-chrome-stable
 after_success:
   - if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "master" ]; then exit 0; fi
+  - yarn run build
   - bash deploy.sh
 env:
   global:
