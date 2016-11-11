@@ -6,3 +6,8 @@ new Vue({
   el: '#app',
   render: h => h(App),
 });
+
+Vue.directive('mdl', {
+  /* eslint-disable no-undef */
+  bind: () => componentHandler.upgradeElement(this.el),
+});

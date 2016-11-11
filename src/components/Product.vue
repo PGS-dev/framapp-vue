@@ -1,9 +1,7 @@
 <template>
   <div class="card">
-    <div class="card-photo">
-      <img :src="this.data.photo"/>
-    </div>
-    <h2>{{this.data.name}}</h2>
+    <img :src="this.data.photo"/>
+    <title>{{this.data.name}}</title>
     <div>{{this.data.description}}</div>
   </div>
 </template>
@@ -22,7 +20,8 @@
     padding: 10px;
   }
 
-  .card-photo {
+  img {
     height: 200px;
+    display: block;
   }
 </style>

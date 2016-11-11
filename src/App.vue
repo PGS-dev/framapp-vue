@@ -1,15 +1,15 @@
 <template>
-  <products-list></products-list>
+  <layout></layout>
 </template>
 
 <script>
-import ProductsList from './components/ProductsList';
+import Layout from './components/Layout';
 import store from './store/index';
 
 export default {
   store,
   components: {
-    ProductsList,
+    Layout,
   },
 };
 </script>

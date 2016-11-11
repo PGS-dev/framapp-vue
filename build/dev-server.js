@@ -64,5 +64,7 @@ module.exports = app.listen(port, function (err) {
   }
   var uri = 'http://localhost:' + port
   console.log('Listening at ' + uri + '\n')
-  opn(uri)
+
+  // Uncomennt if you want to have open new page on every start
+  // opn(uri)
 })
