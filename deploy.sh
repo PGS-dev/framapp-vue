@@ -20,8 +20,6 @@ git remote add upstream "https://$GH_TOKEN@github.com/PGS-dev/framapp-vue.git"
 git fetch upstream
 git reset upstream/gh-pages
 
-touch .
-
 git add -A .
 git commit -m "rebuild pages at ${rev}"
 git push -q upstream HEAD:gh-pages
