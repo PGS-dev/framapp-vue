@@ -7,15 +7,15 @@
       </div>
     </header>
     <div class="mdl-layout__drawer">
-    <nav class="mdl-navigation">
-      <a v-for="categ in categs" class="mdl-navigation__link" href="#">
+      <nav class="mdl-navigation">
+        <a v-for="categ in categs" class="mdl-navigation__link" href="#">
           {{ categ.title }}
       </a>
-    </nav>
+      </nav>
     </div>
-  <main class="mdl-layout__content">
-    <products-list></products-list>
-  </main>
+    <main class="mdl-layout__content">
+      <products-list></products-list>
+    </main>
   </div>
 </template>
 
