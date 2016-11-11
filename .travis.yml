@@ -4,8 +4,6 @@ jdk:
 node_js: '6'
 sudo: required
 dist: trusty
-env:
-  - NODE_VERSION=6.9.1
 cache:
   directories:
     - $HOME/.npm
@@ -15,7 +13,6 @@ before_install:
   - sh -e /etc/init.d/xvfb start
   - sleep 3
 before_script:
-  - nvm install $NODE_VERSION
   - npm install -g yarn
   - yarn install --prefer-offline
 script:
