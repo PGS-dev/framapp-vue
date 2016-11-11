@@ -16,7 +16,6 @@ before_script:
   - npm install -g yarn
   - yarn install --prefer-offline
 script:
-  - nvm use $NODE_VERSION
   - yarn run test
 branches:
   only:
