@@ -5,13 +5,13 @@ describe('Product.vue', () => {
   it('render correctly with different props', () => {
     const vm = getRenderedText(Product, {
       data: {
-        name: 'Name1',
+        title: 'Name1',
         description: 'Description1',
-        photo: '//url',
+        imageUrl: 'http://placehold.it/300x200',
       },
     });
     expect(vm.$el.querySelector('.card title').textContent).to.equal('Name1');
     expect(vm.$el.querySelector('.card div').textContent).to.equal('Description1');
-    expect(vm.$el.querySelector('.card img').src).to.equal('http://url/');
+    expect(vm.$el.querySelector('.card img').src).to.equal('http://placehold.it/300x200');
   });
 });

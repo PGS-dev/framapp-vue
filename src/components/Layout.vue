@@ -7,38 +7,32 @@
       </div>
     </header>
     <div class="mdl-layout__drawer">
-      <nav class="mdl-navigation">
-        <a v-for="categ in categs" class="mdl-navigation__link" href="#">
-          {{ categ.title }}
+    <nav class="mdl-navigation">
+      <a v-for="item in categories" class="mdl-navigation__link" href="#">
+          {{ item.title }}
       </a>
-      </nav>
+    </nav>
     </div>
-    <main class="mdl-layout__content">
-      <products-list></products-list>
-    </main>
+  <main class="mdl-layout__content">
+    <products-list></products-list>
+  </main>
   </div>
 </template>
 
 <script>
-import FIREBASE_URL from '../config';
+import { mapState } from 'vuex';
 import ProductsList from './ProductsList';
+import * as actions from '../store/actionTypes';
 
 export default {
   components: {
     ProductsList,
   },
-  data() {
-    return {
-      categs: {},
-    };
-  },
+  computed: mapState({
+    categories: state => state.products.categories,
+  }),
   created() {
-    fetch(FIREBASE_URL, { method: 'GET' })
-      .then(response => response.json())
-      .then((json) => {
-        this.categs = json;
-      })
-      .catch(error => console.log(error));
+    this.$store.dispatch(actions.GET_CATEGORIES);
   },
 };
 </script>
