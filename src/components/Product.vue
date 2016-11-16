@@ -13,7 +13,7 @@
     },
     computed: {
       shortDescription() {
-        const desc = this.data.description;
+        const desc = this.data.description ? this.data.description : '';
         return desc.length > 100 ? `${desc.substr(0, 100)}...` : desc;
       },
     },
