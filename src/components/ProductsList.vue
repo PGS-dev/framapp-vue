@@ -7,6 +7,7 @@
 </template>
 
 <script>
+  import { filter } from 'lodash';
   import { mapState } from 'vuex';
   import Product from './Product';
   import * as actions from '../store/actionTypes';
@@ -18,13 +19,7 @@
     computed: mapState({
       productsFiltered(state) {
         const products = state.products.products;
-        const keys = Object.keys(state.products.products);
-        return keys.reduce((acc, key) => {
-          if (products[key].category === this.$route.params.category) {
-            acc[key] = products[key];
-          }
-          return acc;
-        }, {});
+        return filter(products, item => item.category === this.$route.params.category);
       },
     }),
     created() {
