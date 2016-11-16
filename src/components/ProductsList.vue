@@ -1,7 +1,7 @@
 <template>
   <main>
     <section>
-      <product v-for="product in products" :data="product" track-by="id"></product>
+      <product v-for="product in productsFiltered" :data="product" track-by="id"></product>
     </section>
   </main>
 </template>
@@ -16,7 +16,16 @@
       Product,
     },
     computed: mapState({
-      products: state => state.products.products,
+      productsFiltered(state) {
+        const products = state.products.products;
+        const keys = Object.keys(state.products.products);
+        return keys.reduce((acc, key) => {
+          if (products[key].category === this.$route.params.category) {
+            acc[key] = products[key];
+          }
+          return acc;
+        }, {});
+      },
     }),
     created() {
       this.$store.dispatch(actions.GET_PRODUCTS);

@@ -8,13 +8,13 @@
     </header>
     <div class="mdl-layout__drawer">
     <nav class="mdl-navigation">
-      <a v-for="item in categories" class="mdl-navigation__link" href="#">
-          {{ item.title }}
-      </a>
+      <div v-for="item in categories" class="mdl-navigation__link" href="#">
+          <router-link :to="'/products/' + item.title" >{{ item.title }}</router-link>
+      </div>
     </nav>
     </div>
   <main class="mdl-layout__content">
-    <products-list></products-list>
+    <slot></slot>
   </main>
   </div>
 </template>
