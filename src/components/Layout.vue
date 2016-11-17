@@ -1,20 +1,15 @@
 <template v-mdl>
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">Framapp-Vue</span>
-        <div class="mdl-layout-spacer"></div>
-      </div>
-    </header>
+    <app-header></app-header>
     <div class="mdl-layout__drawer">
     <nav class="mdl-navigation">
-      <a v-for="item in categories" class="mdl-navigation__link" href="#">
-          {{ item.title }}
-      </a>
+      <span v-for="item in categories" class="mdl-navigation__link" href="#">
+          <router-link class="mdl-navigation__link" :to="'/products/' + item.id" >{{ item.title }}</router-link>
+      </span>
     </nav>
     </div>
   <main class="mdl-layout__content">
-    <products-list></products-list>
+    <slot></slot>
   </main>
   </div>
 </template>
@@ -22,11 +17,13 @@
 <script>
 import { mapState } from 'vuex';
 import ProductsList from './ProductsList';
+import AppHeader from './AppHeader';
 import * as actions from '../store/actionTypes';
 
 export default {
   components: {
     ProductsList,
+    AppHeader,
   },
   computed: mapState({
     categories: state => state.products.categories,

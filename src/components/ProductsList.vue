@@ -1,12 +1,13 @@
 <template>
   <main>
     <section>
-      <product v-for="product in products" :data="product" track-by="id">
+      <product v-for="product in productsFiltered" :data="product" track-by="id"></product>
     </section>
   </main>
 </template>
 
 <script>
+  import { filter } from 'lodash';
   import { mapState } from 'vuex';
   import Product from './Product';
   import * as actions from '../store/actionTypes';
@@ -16,7 +17,10 @@
       Product,
     },
     computed: mapState({
-      products: state => state.products.products,
+      productsFiltered(state) {
+        const products = state.products.products;
+        return filter(products, item => item.category === this.$route.params.category);
+      },
     }),
     created() {
       this.$store.dispatch(actions.GET_PRODUCTS);
