@@ -1,8 +1,14 @@
 <template>
-  <div class="card">
+  <div class="card mdl-card">
     <img :src="this.data.imageUrl"/>
     <title>{{this.data.title}}</title>
     <div>{{this.shortDescription}}</div>
+    <div class="mdl-card__menu">
+        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"  >
+            <i class="material-icons">share</i>
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span>
+        </button>
+    </div>
   </div>
 </template>
 
