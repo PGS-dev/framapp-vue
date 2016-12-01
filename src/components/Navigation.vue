@@ -12,7 +12,7 @@
 <script>
 export default {
   props: {
-    categories: Array,
+    categories: Object,
   },
 };
 </script>

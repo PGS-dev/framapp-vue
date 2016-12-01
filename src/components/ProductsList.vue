@@ -19,7 +19,15 @@
     computed: mapState({
       productsFiltered(state) {
         const products = state.products.products;
-        return filter(products, item => item.category === this.$route.params.category);
+        const selectedCategory = this.$route.params.category;
+        const isRoot = this.$route.path === '/';
+        if (isRoot) {
+          return filter(products, item => item.promoted);
+        }
+        if (selectedCategory) {
+          return filter(products, item => item.category === selectedCategory);
+        }
+        return products;
       },
     }),
     created() {
