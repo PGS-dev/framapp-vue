@@ -1,16 +1,10 @@
 <template v-mdl>
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
     <app-header></app-header>
-    <div class="mdl-layout__drawer">
-    <nav class="mdl-navigation">
-      <span v-for="item in categories" class="mdl-navigation__link" href="#">
-          <router-link class="mdl-navigation__link" :to="'/products/' + item.id" >{{ item.title }}</router-link>
-      </span>
-    </nav>
-    </div>
-  <main class="mdl-layout__content">
-    <slot></slot>
-  </main>
+    <navigation :categories="categories"></navigation>
+    <main class="mdl-layout__content">
+      <slot></slot>
+    </main>
   </div>
 </template>
 
@@ -18,12 +12,14 @@
 import { mapState } from 'vuex';
 import ProductsList from './ProductsList';
 import AppHeader from './AppHeader';
+import Navigation from './Navigation';
 import * as actions from '../store/actionTypes';
 
 export default {
   components: {
     ProductsList,
     AppHeader,
+    Navigation,
   },
   computed: mapState({
     categories: state => state.products.categories,

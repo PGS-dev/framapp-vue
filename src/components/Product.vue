@@ -1,6 +1,7 @@
 <template>
   <div class="card">
     <img :src="this.data.imageUrl"/>
+    <div class="icon material-icons promoted" v-if="this.data.promoted">star</div>
     <title>{{this.data.title}}</title>
     <div>{{this.shortDescription}}</div>
   </div>
@@ -24,10 +25,17 @@
   .card {
     width: 200px;
     padding: 10px;
+    position: relative;
   }
 
   img {
     height: 200px;
     display: block;
+  }
+
+  .promoted {
+    position: absolute;
+    right: 15px;
+    top: 180px;
   }
 </style>
