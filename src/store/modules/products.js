@@ -1,3 +1,4 @@
+import filter from 'lodash/filter';
 import * as mutationTypes from '../mutationTypes';
 import * as actionTypes from '../actionTypes';
 
@@ -28,7 +29,7 @@ const mutations = {
     state.categories = categories;
   },
   [mutationTypes.GET_PRODUCTS_SUCCESS](state, { products }) {
-    state.products = products;
+    state.products = filter(products, 'id');
   },
 };
 

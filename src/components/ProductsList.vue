@@ -1,18 +1,19 @@
 <template>
   <main>
     <section>
-      <product v-for="product in productsFiltered" :data="product" track-by="id"></product>
+      <product v-for="product in productsFiltered" :data="product"></product>
     </section>
   </main>
 </template>
 
 <script>
-  import { filter } from 'lodash';
+  import filter from 'lodash/filter';
   import { mapState } from 'vuex';
   import Product from './Product';
   import * as actions from '../store/actionTypes';
 
   export default {
+    name: 'ProductsList',
     components: {
       Product,
     },
