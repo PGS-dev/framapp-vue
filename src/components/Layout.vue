@@ -34,4 +34,8 @@ export default {
   .moveDown {
     margin-top: 65px;
   }
+
+  .mdl-layout__content {
+    padding: 20px;
+  }
 </style>
