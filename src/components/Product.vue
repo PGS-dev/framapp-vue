@@ -13,7 +13,10 @@
 </template>
 
 <script>
+  import favoritesMix from '../mixins/favoritesMix';
+
   export default {
+    mixins: [favoritesMix],
     props: {
       data: Object,
     },
