@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import ProductsList from './components/ProductsList';
 import ProductDetails from './components/ProductDetails';
+import LoginForm from './components/LoginForm';
 import Layout from './components/Layout';
 import store from './store/index';
 
@@ -15,6 +16,7 @@ const router = new VueRouter({
     { path: '/products/', component: ProductsList },
     { path: '/products/:category', component: ProductsList },
     { path: '/product/:id', name: 'product', component: ProductDetails },
+    { path: '/login', name: 'login', component: LoginForm },
   ],
 });
 
