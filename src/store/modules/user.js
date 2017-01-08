@@ -26,7 +26,7 @@ const mutations = {
 };
 
 const actions = {
-  [actionTypes.USER_SIGN_IN](context, email, password) {
+  [actionTypes.USER_SIGN_IN](context, { email, password }) {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(user => context.commit(mutations.USER_SIGNED_IN_SUCCESS, { user }));
     // .catch(({ code, message }) => {

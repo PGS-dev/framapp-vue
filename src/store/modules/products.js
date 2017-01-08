@@ -14,7 +14,6 @@ const mutationTypes = {
   GET_PRODUCTS_FAILURE: 'products/GET_PRODUCTS_FAILURE',
 };
 
-
 const state = {
   categories: {},
   products: {},
