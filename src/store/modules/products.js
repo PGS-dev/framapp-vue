@@ -1,8 +1,19 @@
 import filter from 'lodash/filter';
-import * as mutationTypes from '../mutationTypes';
-import * as actionTypes from '../actionTypes';
 
 import FIREBASE_URL from '../../config';
+
+export const actionTypes = {
+  GET_PRODUCTS: 'products/GET_PRODUCTS',
+  GET_CATEGORIES: 'products/GET_CATEGORIES',
+};
+
+const mutationTypes = {
+  GET_CATEGORIES_SUCCESS: 'products/GET_CATEGORIES_SUCCESS',
+  GET_CATEGORIES_FAILURE: 'products/GET_CATEGORIES_FAILURE',
+  GET_PRODUCTS_SUCCESS: 'products/GET_PRODUCTS_SUCCESS',
+  GET_PRODUCTS_FAILURE: 'products/GET_PRODUCTS_FAILURE',
+};
+
 
 const state = {
   categories: {},
@@ -28,8 +39,14 @@ const mutations = {
   [mutationTypes.GET_CATEGORIES_SUCCESS](state, { categories }) {
     state.categories = categories;
   },
+  [mutationTypes.GET_CATEGORIES_FAILURE](state) {
+    state.categories = {};
+  },
   [mutationTypes.GET_PRODUCTS_SUCCESS](state, { products }) {
     state.products = filter(products, 'id');
+  },
+  [mutationTypes.GET_PRODUCTS_FAILURE](state) {
+    state.products = {};
   },
 };
 

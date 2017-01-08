@@ -10,7 +10,7 @@
   import filter from 'lodash/filter';
   import { mapState } from 'vuex';
   import Product from './Product';
-  import * as actions from '../store/actionTypes';
+  import { actionTypes as productAction } from '../store/modules/products';
 
   export default {
     name: 'ProductsList',
@@ -32,7 +32,7 @@
       },
     }),
     created() {
-      this.$store.dispatch(actions.GET_PRODUCTS);
+      this.$store.dispatch(productAction.GET_PRODUCTS);
     },
   };
 </script>

@@ -10,11 +10,11 @@
 </template>
 
 <script>
-export default {
-  props: {
-    categories: Object,
-  },
-};
+  export default {
+    props: {
+      categories: Object,
+    },
+  };
 </script>
 
 <style scoped>
