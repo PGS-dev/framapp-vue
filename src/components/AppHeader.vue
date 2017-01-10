@@ -5,6 +5,11 @@
         <router-link tag="a" to="/">Framapp-Vue</router-link>
       </span>
       <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <router-link tag="button" to="/login" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+          Login
+        </router-link>
+      </nav>
     </div>
   </header>
 </template>
