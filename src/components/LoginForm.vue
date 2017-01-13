@@ -12,14 +12,19 @@
       <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
           Sign in
       </button>
+      <error-message :message="error"></error-message>
     </form>
   </div>
 </template>
 <script>
-  import { actionTypes } from '../store/modules/user';
+  import ErrorMessage from './ErrorMessage';
+  import { actionTypes } from '../store/modules/auth';
 
   export default {
     name: 'loginForm',
+    components: {
+      ErrorMessage,
+    },
     data() {
       return {
         authData: {
@@ -27,6 +32,11 @@
           password: null,
         },
       };
+    },
+    computed: {
+      error() {
+        return this.$store.state.auth.error;
+      },
     },
     methods: {
       onSubmit() {

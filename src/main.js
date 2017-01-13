@@ -1,24 +1,10 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
-import ProductsList from './components/ProductsList';
-import ProductDetails from './components/ProductDetails';
-import LoginForm from './components/LoginForm';
+import { sync } from 'vuex-router-sync';
 import Layout from './components/Layout';
 import store from './store/index';
+import router from './router';
 
-Vue.use(VueRouter);
-
-const router = new VueRouter({
-  mode: 'history',
-  base: __dirname,
-  routes: [
-    { path: '/', component: ProductsList },
-    { path: '/products/', component: ProductsList },
-    { path: '/products/:category', component: ProductsList },
-    { path: '/product/:id', name: 'product', component: ProductDetails },
-    { path: '/login', name: 'login', component: LoginForm },
-  ],
-});
+sync(store, router); // sync vue-router with vuex store
 
 /* eslint-disable no-new */
 new Vue({

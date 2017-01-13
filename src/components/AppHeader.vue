@@ -6,17 +6,31 @@
       </span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <router-link tag="button" to="/login" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-          Login
+        <router-link v-if="!user" tag="button" to="/login" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+          Sign In
         </router-link>
+        <a v-if="user" v-on:click="signOut" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+          Sign Out
+        </a>
       </nav>
     </div>
   </header>
 </template>
 
 <script>
+
   export default {
     name: 'AppHeader',
+    computed: {
+      user() {
+        return this.$store.getters.user;
+      },
+    },
+    methods: {
+      signOut() {
+        this.$store.dispatch('USER_SIGN_OUT'); // TODO: Getting strange error when importing actionTypes in this file
+      },
+    },
   };
 </script>
 
