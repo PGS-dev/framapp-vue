@@ -15,7 +15,7 @@
 <script>
   import find from 'lodash/find';
   import { mapState } from 'vuex';
-  import * as actions from '../store/actionTypes';
+  import { actionTypes as productActions } from '../store/modules/products';
 
   export default {
     name: 'ProductDetails',
@@ -28,7 +28,7 @@
     }),
     created() {
       if (!this.product) {
-        this.$store.dispatch(actions.GET_PRODUCTS);
+        this.$store.dispatch(productActions.GET_PRODUCTS);
       }
     },
   };

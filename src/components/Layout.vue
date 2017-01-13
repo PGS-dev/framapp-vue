@@ -13,7 +13,7 @@ import { mapState } from 'vuex';
 import ProductsList from './ProductsList';
 import AppHeader from './AppHeader';
 import Navigation from './Navigation';
-import * as actions from '../store/actionTypes';
+import { actionTypes as productActions } from '../store/modules/products';
 
 export default {
   components: {
@@ -25,7 +25,7 @@ export default {
     categories: state => state.products.categories,
   }),
   created() {
-    this.$store.dispatch(actions.GET_CATEGORIES);
+    this.$store.dispatch(productActions.GET_CATEGORIES);
   },
 };
 </script>
