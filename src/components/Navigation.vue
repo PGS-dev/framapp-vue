@@ -1,12 +1,12 @@
 <template v-mdl>
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Categories</span>
+  <div>
+    <span class="mdl-layout-title">{{ title }}</span>
     <nav class="mdl-navigation">
-      <span v-for="item in categories">
-        <router-link :to="'/products/' + item.id"
-                      active-class="active"
-                      class="mdl-navigation__link"
-                      exact>
+      <span v-for="item in items">
+        <router-link :to="item.url"
+                     active-class="active"
+                     class="mdl-navigation__link"
+                     exact>
           <a>{{ item.title }}</a>
         </router-link>
       </span>
@@ -17,18 +17,26 @@
 <script>
   export default {
     props: {
-      categories: Object,
+      title: String,
+      items: Array,
     },
   };
 </script>
 
 <style lang="scss" scoped>
-a {
-  text-decoration: none;
-  color: black;
-}
 
-.active {
-  background-color: #c0c0c0;
-}
+  .mdl-layout-title {
+    line-height: 64px;
+    padding-left: 40px;
+    background-color: #ddd;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .active {
+    background-color: #c0c0c0;
+  }
 </style>

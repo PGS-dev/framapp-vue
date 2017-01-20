@@ -9,6 +9,7 @@
         <router-link v-if="!user" tag="button" to="/login" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
           Sign In
         </router-link>
+        <span v-if="user" class="username">{{ user.email }}</span>
         <a v-if="user" v-on:click="signOut" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
           Sign Out
         </a>
@@ -40,5 +41,9 @@
       color: white;
       text-decoration: none;
     }
+  }
+
+  .username {
+    margin-right: 10px;
   }
 </style>

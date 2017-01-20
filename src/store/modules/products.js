@@ -1,4 +1,5 @@
 import filter from 'lodash/filter';
+import map from 'lodash/map';
 
 import FIREBASE_URL from '../../config';
 
@@ -15,7 +16,7 @@ const mutationTypes = {
 };
 
 const state = {
-  categories: {},
+  categories: [],
   products: {},
 };
 
@@ -36,7 +37,7 @@ const actions = {
 
 const mutations = {
   [mutationTypes.GET_CATEGORIES_SUCCESS](state, { categories }) {
-    state.categories = categories;
+    state.categories = map(categories, (v, k) => ({ ...v, id: k }));
   },
   [mutationTypes.GET_CATEGORIES_FAILURE](state) {
     state.categories = {};
@@ -49,8 +50,15 @@ const mutations = {
   },
 };
 
+const getters = {
+  categoriesWithURL(state) {
+    return map(state.categories, v => ({ ...v, url: `/products/${v.id}` }));
+  },
+};
+
 export default {
   state,
   actions,
   mutations,
+  getters,
 };
