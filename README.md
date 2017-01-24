@@ -2,7 +2,8 @@
 
 > A Vue.js project
 
-[![Build Status](https://travis-ci.org/PGS-dev/framapp-vue.svg?branch=master)](https://travis-ci.org/PGS-dev/framapp-vue)
+[![Build Status](https://travis-ci.org/PGS-dev/framapp-vue.svg?branch=master)](https://travis-ci.org/PGS-dev/framapp-vue) [![Sauce Test Status](https://saucelabs.com/buildstatus/YOUR_SAUCE_USERNAME)](https://saucelabs.com/u/YOUR_SAUCE_USERNAME)
+
 
 ## Build Setup
 
