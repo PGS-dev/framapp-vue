@@ -17,6 +17,7 @@ branches:
   only:
     - master
 addons:
+  sauce_connect: false
   firefox: 48.0
   apt:
     sources:
