@@ -1,8 +1,11 @@
 import Vue from 'vue';
+import Vuelidate from 'vuelidate';
 import { sync } from 'vuex-router-sync';
 import Layout from './components/Layout';
 import store from './store/index';
 import router from './router';
+
+Vue.use(Vuelidate);
 
 sync(store, router); // sync vue-router with vuex store
 
