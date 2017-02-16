@@ -6137,9 +6137,9 @@ vue-loader@^10.0.2:
     vue-style-loader "^1.0.0"
     vue-template-es2015-compiler "^1.2.2"
 
-vue-router@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.1.1.tgz#10c31bbdcb6da92bd3e0223fa12345e73018625a"
+vue-router@^2.2.0:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.2.1.tgz#b027f9fac2cf13462725e843d6dc631b6aa077f6"
 
 vue-style-loader@^1.0.0:
   version "1.0.0"

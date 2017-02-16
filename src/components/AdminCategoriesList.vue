@@ -1,4 +1,5 @@
 <template>
+  <div>
   <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
     <thead>
       <tr>
@@ -11,17 +12,27 @@
       <category v-for="category in categories" :data="category"></category>
     </tbody>
   </table>
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" v-on:click="addCategory()">
+    ADD
+  </button>
+</div>
 </template>
 
 <script>
   import { mapState } from 'vuex';
   import Category from './Category';
+  import router from '../router';
   import { actionTypes as productAction } from '../store/modules/products';
 
   export default {
     name: 'AdminCategoriesList',
     components: {
       Category,
+    },
+    methods: {
+      addCategory() {
+        router.push({ name: 'category-create' });
+      },
     },
     computed: mapState({
       categories: state => state.products.categories,
@@ -34,7 +45,6 @@
 
 <style scoped lang="scss">
 .mdl-data-table {
-  width: 100%;
   th {
     color: white;
     background-color: #666;
