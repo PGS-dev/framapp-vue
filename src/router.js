@@ -6,7 +6,7 @@ import ProductDetails from './components/ProductDetails';
 import LoginForm from './components/LoginForm';
 import AdminProductsList from './components/AdminProductsList';
 import AdminCategoriesList from './components/AdminCategoriesList';
-import CategoryForm from './components/CategoryForm';
+import CategoryEdit from './components/CategoryEdit';
 
 Vue.use(VueRouter);
 
@@ -35,15 +35,9 @@ const router = new VueRouter({
     {
       path: '/admin/categories/edit/:id',
       name: 'category-edit',
-      component: CategoryForm,
-      beforeEnter: requireAuth,
+      component: CategoryEdit,
+      // beforeEnter: requireAuth,
       props: { actionType: 'Edit' },
-    }, {
-      path: '/admin/categories/create',
-      name: 'category-create',
-      component: CategoryForm,
-      beforeEnter: requireAuth,
-      props: { actionType: 'Create' },
     },
     { path: '*', name: '404', component: { template: '<h1>Page not found</h1>' } },
   ],

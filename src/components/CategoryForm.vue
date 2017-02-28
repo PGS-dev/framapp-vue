@@ -1,17 +1,18 @@
 <template>
   <form>
     <label>Name:</label>
-    <input v-model="name"></input>
+    <input v-model="name"/>
     <label>Description:</label>
     <textarea v-model="description"></textarea>
     <input type="submit"
            :value="actionType"
-           class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent submit">
-    </input>
+           class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent submit"/>
   </form>
 </template>
 
 <script>
+  import { actionTypes as categoryActions } from '../store/modules/products';
+
   export default {
     name: 'CategoryForm',
     data() {
@@ -25,6 +26,11 @@
         type: String,
         default: 'Submit',
       },
+    },
+    created() {
+      if (this.$route.params.id) {
+        this.$store.dispatch(categoryActions.GET_CATEGORY, this.$route.params.id);
+      }
     },
   };
 </script>

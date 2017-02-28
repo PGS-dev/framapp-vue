@@ -17,7 +17,7 @@ module.exports = {
     productionGzipExtensions: ['js', 'css']
   },
   dev: {
-    env: require('./dev.env'),
+    env: require('./prod.env'),
     port: 3001,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
