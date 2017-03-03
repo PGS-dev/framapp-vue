@@ -36,7 +36,7 @@ const router = new VueRouter({
       path: '/admin/categories/edit/:id',
       name: 'category-edit',
       component: CategoryEdit,
-      // beforeEnter: requireAuth,
+      beforeEnter: requireAuth,
       props: { actionType: 'Edit' },
     },
     { path: '*', name: '404', component: { template: '<h1>Page not found</h1>' } },
