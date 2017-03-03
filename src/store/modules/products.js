@@ -1,11 +1,13 @@
 import filter from 'lodash/filter';
 import map from 'lodash/map';
+import find from 'lodash/find';
 
 import FIREBASE_URL from '../../config';
 
 export const actionTypes = {
   GET_PRODUCTS: 'products/GET_PRODUCTS',
   GET_CATEGORIES: 'products/GET_CATEGORIES',
+  GET_CATEGORY: 'products/GET_CATEGORY',
 };
 
 const mutationTypes = {
@@ -13,6 +15,8 @@ const mutationTypes = {
   GET_CATEGORIES_FAILURE: 'products/GET_CATEGORIES_FAILURE',
   GET_PRODUCTS_SUCCESS: 'products/GET_PRODUCTS_SUCCESS',
   GET_PRODUCTS_FAILURE: 'products/GET_PRODUCTS_FAILURE',
+  GET_CATEGORY_SUCCESS: 'products/GET_CATEGORY_SUCCESS',
+  GET_CATEGORY_FAILURE: 'products/GET_CATEGORY_FAILURE',
 };
 
 const state = {
@@ -33,6 +37,12 @@ const actions = {
       .then(products => context.commit(mutationTypes.GET_PRODUCTS_SUCCESS, { products }))
       .catch(() => context.commit(mutationTypes.GET_PRODUCTS_FAILURE));
   },
+  [actionTypes.GET_CATEGORY](context, id) {
+    fetch(`${FIREBASE_URL}categories/${id}.json`)
+      .then(response => response.json())
+      .then(category => context.commit(mutationTypes.GET_CATEGORY_SUCCESS, { category }))
+      .catch(() => context.commit(mutationTypes.GET_CATEGORY_FAILURE));
+  },
 };
 
 const mutations = {
@@ -40,7 +50,7 @@ const mutations = {
     state.categories = map(categories, (v, k) => ({ ...v, id: k }));
   },
   [mutationTypes.GET_CATEGORIES_FAILURE](state) {
-    state.categories = {};
+    state.categories = [];
   },
   [mutationTypes.GET_PRODUCTS_SUCCESS](state, { products }) {
     state.products = filter(products, 'id');
@@ -48,6 +58,12 @@ const mutations = {
   [mutationTypes.GET_PRODUCTS_FAILURE](state) {
     state.products = {};
   },
+  [mutationTypes.GET_CATEGORY_SUCCESS](state, { category }) {
+    if (!find(state.categories, item => item.id === category.id)) {
+      state.categories.push(category);
+    }
+  },
+  [mutationTypes.GET_CATEGORY_FAILURE]() {},
 };
 
 const getters = {
