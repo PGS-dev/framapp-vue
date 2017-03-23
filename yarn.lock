@@ -6162,6 +6162,10 @@ vue@^2.1.8:
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.1.8.tgz#ae30aa86024fccf5535292ce414e7b4c221a1756"
 
+vuelidate:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.2.0.tgz#7c50b220ef3700b1a28900f32825c442df809337"
+
 vuex-router-sync:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/vuex-router-sync/-/vuex-router-sync-4.1.0.tgz#07ef3363883caf1649805a1cb1e434ef9d53f1fc"
