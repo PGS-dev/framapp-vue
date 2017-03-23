@@ -1,6 +1,7 @@
 <template>
   <div class="error">
-    {{ state }}
+    <p v-if="!errors.required && errors.$dirty">{{label}} jest wymagany</p>
+    <p v-if="errors.required && errors.$invalid && errors.$dirty">{{label}} błędny</p>
   </div>
 </template>
 
@@ -8,7 +9,8 @@
   export default {
     name: 'InlineError',
     props: {
-      state: Object,
+      errors: Object,
+      label: String,
     },
   };
 

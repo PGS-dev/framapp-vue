@@ -24,8 +24,3 @@ new Vue({
     </div>
   `,
 }).$mount('#app');
-
-Vue.directive('mdl', {
-  /* eslint-disable no-undef */
-  bind: () => componentHandler.upgradeElement(this.el),
-});

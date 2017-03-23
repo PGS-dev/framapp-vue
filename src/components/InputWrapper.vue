@@ -7,17 +7,22 @@
 </template>
 
 <script>
+  import InlineError from './InlineError';
+
   export default {
     name: 'InputWrapper',
+    components: {
+      InlineError,
+    },
     props: {
       value: [String, Number],
       options: {
-        type: String,
+        type: Object,
         label: String,
         id: String,
         validation: Object,
       },
-      onValidate: Function
+      onValidate: Function,
     },
     methods: {
       updateValue(value) {
